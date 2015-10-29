@@ -1,24 +1,24 @@
 public class Dice {
 	/**
-	 * Die Funktion würfelt einen oder mehrere Würfel anhand von folgenden Eingabeparametern:
-	 * @param number Anzahl der Würfel
-	 * @param dice Anzahl der Seiten eines der Würfel
-	 * @return Rückgabewert ist ein String mit dem Format "&lt;ergebnis&gt; (&lt;wurf1&gt;, &lt;wurf2&gt;, ...)"
+	 * This function rolls a given number of dice and returns the sum of them and the single throws
+	 * @param number number of dice
+	 * @param dice value of the dice (how many sides?)
+	 * @return returns a string like "25 = 3+5+4+6+5+2"
 	 */
-	public static String roll(int number, int dice) // Roll-Funktion
+	public static String roll(int number, int dice) // roll-function
 	{
-		int result=0; //Gesamtergebnis (addition der einzelwürfe)
-		String singles=""; //Einzelwürfe als string
-		for(int i=number;i>0;i--) //FOR-Schleife
+		int result=0; //sum of throws
+		String singles=""; //single throws as string
+		for(int i=number;i>0;i--)
 		{
-			if(i!=number) // beim ersten wurf kein Komma mit einfügen
+			if(i!=number)
 			{
-				singles=singles+"+"; // komma einfügen
+				singles=singles+"+";
 			}
-			int rolled=(int)(Math.random()*(dice-1))+1; //Zufallszahl als grundlage
-			result+=rolled; //einzelwurf zum gesamtergebnis addieren
-			singles=singles+rolled; //einfache string-concatenation: einzelwurf anhängen
+			int rolled=(int)(Math.random()*(dice-1))+1; //Math.random.
+			result+=rolled; //add throw to sum
+			singles=singles+rolled; //concatenate throw to the single throws
 		}
-		return result+" = "+singles+""; //Ausgeben von "<ergebnis> (<wurf1>, <wurf2>, ...)"
+		return result+" = "+singles+""; //output
 	}
 }
